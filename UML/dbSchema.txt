@@ -1,0 +1,82 @@
+Table species{
+  Id int [pk] // auto-increment
+  Name varchar
+  C int
+  H int
+  O int
+  N int
+  He int
+  Ar int
+  NasaCoef list[float]
+  LeonardJones list[float]
+}
+
+Table reactions{
+  Id int [pk]
+  Name varchar
+  Reversible boolean //0 irrev, 1 rev
+  lnA float
+  Beta float
+  EoverR float
+  reactant list[varchar]
+  product list[varchar]
+  
+}
+
+Table threebody{
+  Id int [pk]
+  Name varchar
+  Reversible boolean //0 irrev, 1 rev
+  lnA float
+  Beta float
+  EoverR float
+  reactant list[varchar]
+  product list[varchar]
+  Mvalues list[tuple]
+}
+
+
+Table troe{
+  Id int [pk]
+  Name varchar
+  Reversible boolean //0 irrev, 1 rev
+  lnA float
+  Beta float
+  EoverR float
+  reactant list[varchar]
+  product list[varchar]
+  lnAfalloff float
+  betafalloff float
+  EOverRfalloff float
+  thirdbody list[tuple]
+
+}
+
+
+Table lindemann{
+  Id int [pk]
+  Name varchar
+  Reversible boolean //0 irrev, 1 rev
+  lnA float
+  Beta float
+  EoverR float
+  reactant list[varchar]
+  product list[varchar]
+  lnAfalloff float
+  betafalloff float
+  EOverRfalloff float
+  thirdbody list[tuple]
+
+}
+
+Table pressureLog{
+  Id int [pk]
+  Name varchar
+  Reversible boolean //0 irrev, 1 rev
+  lnA float
+  Beta float
+  EoverR float
+  reactant list[varchar]
+  product list[varchar]
+  pressureLogParam list[float]
+}

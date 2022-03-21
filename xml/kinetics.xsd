@@ -1,0 +1,155 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name = "opensmoke">
+<xs:complexType>
+<xs:sequence>
+<xs:element name = "Properties">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: string" name = "Author"/>
+<xs:element type = " xs: string" name = "Place"/>
+<xs:element type = " xs: Date" name = "Date"/>
+<xs:element type = " xs: string" name = "Time"/>
+<xs:element type = " xs: string" name = "Comments"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element type = " xs: integer" name = "NumberOfElements"/>
+<xs:element type = " xs: string" name = "NamesOfElements"/>
+<xs:element type = " xs: string" name = "AtomicComposition"/>
+<xs:element type = " xs: integer" name = "NumberOfSpecies"/>
+<xs:element type = " xs: string" name = "NamesOfSpecies"/>
+<xs:element name = "Thermodynamics">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: string" name = "NASA-coefficients"/>
+ </xs:sequence>
+<xs:attribute type="xs:string" name="type"/>
+</xs:complexType>
+</xs:element>
+<xs:element  name = "Transport">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:string">
+<xs:attribute type="xs:string" name="type"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:element type = " xs: string" name = "Lennard-Jones"/>
+<xs:element name = "Kinetics">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: integer" name = "NumberOfReactions"/>
+<xs:element type = " xs: string" name = "Irreversible"/>
+<xs:element type = " xs: string" name = "Reversible"/>
+<xs:element type = " xs: string" name = "Reversible-Thermodynamics"/>
+<xs:element type = " xs: byte" name = "Reversible-Explicit"/>
+<xs:element type = " xs: string" name = "ThreeBody"/>
+<xs:element name = "FallOff">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: string" name = "Lindemann"/>
+<xs:element type = " xs: string" name = "Troe"/>
+<xs:element type = " xs: integer" name = "SRI"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name = "CABR">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: integer" name = "Lindemann"/>
+<xs:element type = " xs: integer" name = "Troe"/>
+<xs:element type = " xs: integer" name = "SRI"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element type = " xs: integer" name = "Chebyshev"/>
+<xs:element type = " xs: string" name = "PressureLog"/>
+<xs:element type = " xs: integer" name = "ExtendedPressureLog"/>
+<xs:element type = " xs: integer" name = "ExtendedFallOff"/>
+<xs:element type = " xs: integer" name = "FIT1"/>
+<xs:element type = " xs: integer" name = "JanevLanger"/>
+<xs:element type = " xs: integer" name = "LandauTeller"/>
+<xs:element name = "KineticParameters">
+<xs:complexType>
+<xs:sequence>
+<xs:element name = "Direct">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: string" name = "lnA"/>
+<xs:element type = " xs: integer" name = "negative-lnA"/>
+<xs:element type = " xs: string" name = "Beta"/>
+<xs:element type = " xs: string" name = "E_over_R"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name = "ThreeBody">
+<xs:complexType>
+<xs:sequence>
+<xs:element  name = "reaction">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:string">
+<xs:attribute type="xs:byte" name="i" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name = "FallOff">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs: string" name = "lnA"/>
+<xs:element type = " xs: string" name = "Beta"/>
+<xs:element type = " xs: string" name = "E_over_R"/>
+<xs:element name = "Parameters">
+<xs:complexType>
+<xs:sequence>
+<xs:element  name = "reaction">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:string">
+<xs:attribute type="xs:integer" name="i" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element type = " xs: string" name = "PressureLog"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element  name = "Stoichiometry">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:string">
+<xs:attribute type="xs:string" name="type"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:element  name = "GlobalReactions">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:byte">
+<xs:attribute type="xs:string" name="type"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+<xs:attribute type="xs:string" name="type"/>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+<xs:attribute type = "xs:string" name = "version"/>
+</xs:complexType>
+</xs:element>
+</xs:schema>
