@@ -1,6 +1,6 @@
 class Reaction:
     #__init__ for the standard reactions
-    def __init__(self,i,name,species,lnA,beta,eOverR,threeBodyBool,lindBool,troeBool,pressBool,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict):
+    def __init__(self,i,name,species,lnA,beta,eOverR,threeBodyBool,lindBool,troeBool,pressBool,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList):
         self.index=i
         self.name=name
         self.lnA = lnA
@@ -26,6 +26,7 @@ class Reaction:
             self.lnAFallOff=lnaFallOffDict[i]
             self.betaFallOff=betaFallOffDict[i]
             self.eOverRFallOff=eOverRFallOffDict[i]
+            self.troeCoefficients=troeCoefList[i]
 
             #Now work on the threebody characteristics
             keys=fallOffThreeBodyDict[i].keys()

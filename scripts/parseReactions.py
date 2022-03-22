@@ -123,6 +123,22 @@ def parseReactions():
             troeList.insert(i,int(float(number)))
             i=i+1
     
+    #We get the parameters specific for the TROE reactions
+    list=root[9][15][2][3]
+    listOfParameters=[]
+    i=0
+    for row in threeBodyFallOff:
+        line=str.splitlines(row.text)[1]
+        name=line.split(" ")[0]
+        if(name=="troe"):
+            values=line.split(" ")[2:-1]
+            valuesN=[float(x) for x in values]
+            listOfParameters.insert(i,valuesN)
+            i=i+1
+    #It is a dictionary of dictionaries. Each ThreeBody reaction has a dict associated
+    #with its species and values in it
+    troeCoefList=dict(zip(troeList,listOfParameters))
+    
     #Now we get the indexes of the pressureLog reactions
     list=str.splitlines(root[9][9].text)
     list.pop(0)
@@ -165,4 +181,4 @@ def parseReactions():
     eOverRFallOffDict=dict(zip(falloffList,eOverRfallOffParam))
 
 
-    return reactions,lnA,beta,eOverR,threeBodyList,lindList,troeList,pressLogList,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict
+    return reactions,lnA,beta,eOverR,threeBodyList,lindList,troeList,pressLogList,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList

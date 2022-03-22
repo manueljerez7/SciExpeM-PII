@@ -7,7 +7,7 @@ from kinetics import Kinetics
 
 kinetics,species = getSpecies()
 
-reactionNames,lnA,beta,eOverR,threeBodyList,lindList,troeList,pressLogList,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict = parseReactions()
+reactionNames,lnA,beta,eOverR,threeBodyList,lindList,troeList,pressLogList,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList = parseReactions()
 i=0
 reactionList = []
 for e in reactionNames:
@@ -33,8 +33,8 @@ for e in reactionNames:
         pressBool=0
     
     #Is not any of the cases above, so we use the standard constructor
-    newSpecies = Reaction(index,e,species,lnA[i],beta[i],eOverR[i],threeBodyBool,lindBool,troeBool,pressBool,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict)
+    newSpecies = Reaction(index,e,species,lnA[i],beta[i],eOverR[i],threeBodyBool,lindBool,troeBool,pressBool,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList)
     reactionList.insert(i,newSpecies)
     i=i+1
 
-print('a')
+print('Finished Generation')
