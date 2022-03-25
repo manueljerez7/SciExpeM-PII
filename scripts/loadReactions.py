@@ -13,24 +13,24 @@ reactionList = []
 for e in reactionNames:
     index=i+1
     if(index in threeBodyList):
-        threeBodyBool=1
+        threeBodyBool=True
     else:
-        threeBodyBool=0
+        threeBodyBool=False
 
     if(index in lindList):
-        lindBool=1
+        lindBool=True
     else:
-        lindBool=0
+        lindBool=False
 
     if(index in troeList):
-        troeBool=1
+        troeBool=True
     else:
-        troeBool=0
+        troeBool=False
 
     if(index in pressLogList):
-        pressBool=1
+        pressBool=True
     else:
-        pressBool=0
+        pressBool=False
     
     #Is not any of the cases above, so we use the standard constructor
     newSpecies = Reaction(index,e,species,lnA[i],beta[i],eOverR[i],threeBodyBool,lindBool,troeBool,pressBool,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList)

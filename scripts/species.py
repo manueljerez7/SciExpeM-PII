@@ -19,3 +19,13 @@ class Species:
         else:
             equal=0
         return equal
+    
+    def __hash__(self):
+        return self.index
+
+def findSpeciesByName(name,species):
+    for e in species:
+        if(name==e.name):
+            return e
+        else:
+            pass

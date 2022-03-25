@@ -13,16 +13,16 @@ class Reaction:
 
         #reversability=1 if reversible, 0 if irreversible
         if('=>' in name):
-            self.reversability=0
+            self.reversability=False
         else:
-            self.reversability=1
+            self.reversability=True
 
-        if(threeBodyBool==1):
+        if(threeBodyBool==True):
             keys=threeBodyDict[i].keys()
             mValuesDict=threeBodyDict[i]
             for e in list(keys):
                 mValuesDict[species[int(e)-1].name] = mValuesDict.pop(e)
-        if(troeBool==1):
+        if(troeBool==True):
             self.lnAFallOff=lnaFallOffDict[i]
             self.betaFallOff=betaFallOffDict[i]
             self.eOverRFallOff=eOverRFallOffDict[i]
@@ -34,7 +34,7 @@ class Reaction:
             for e in list(keys):
                 mValuesDict[species[int(e)-1].name] = mValuesDict.pop(e)
 
-        if(lindBool==1):
+        if(lindBool==True):
             self.lnAFallOff=lnaFallOffDict[i]
             self.betaFallOff=betaFallOffDict[i]
             self.eOverRFallOff=eOverRFallOffDict[i]
@@ -45,16 +45,16 @@ class Reaction:
             for e in list(keys):
                 mValuesDict[species[int(e)-1].name] = mValuesDict.pop(e)
             
-        if(pressBool==1):
+        if(pressBool==True):
             self.pressureLogParam=pressLogDict[i]
 
         #Now we need to check that the reaction is neither a falloff or threebody reaction
-        if(self.isLindemann==1 or self.isTroe==1):
+        if(self.isLindemann==True or self.isTroe==True):
             name = name.replace("(+M)", "+M")
             self.name=name
         #Now we start with the parsing of the names
         #We need to check if it is or not reversible
-        if(self.reversability==0):
+        if(self.reversability==False):
             parsed=self.name.split("=>")
             reactantList=parsed[0]
             productList=parsed[1]
@@ -108,6 +108,6 @@ class Reaction:
         self.reactants=dict(zip(reactName,reactValues))
         self.products=dict(zip(prodName,prodValues))
         #We change the value of the M key
-        if(self.isThreeBody==1 or self.isLindemann==1 or self.isTroe==1):
+        if(self.isThreeBody==True or self.isLindemann==True or self.isTroe==True):
             self.reactants['M']=mValuesDict
             self.products['M']=mValuesDict
