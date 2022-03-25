@@ -1,3 +1,7 @@
+from re import I
+from species import Species
+from species import findSpeciesByName
+
 class Reaction:
     #__init__ for the standard reactions
     def __init__(self,i,name,species,lnA,beta,eOverR,threeBodyBool,lindBool,troeBool,pressBool,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList):
@@ -111,3 +115,29 @@ class Reaction:
         if(self.isThreeBody==True or self.isLindemann==True or self.isTroe==True):
             self.reactants['M']=mValuesDict
             self.products['M']=mValuesDict
+
+        self.reactantList=[]
+        i=0
+        for e in list(self.reactants.keys()):
+            if(e=='M'):
+                pass
+            else:
+                obj=findSpeciesByName(e,species)
+                self.reactantList.insert(i,obj)
+                i=i+1
+        self.productList=[]
+        i=0
+        for e in list(self.products.keys()):
+            if(e=='M'):
+                pass
+            else:
+                obj=findSpeciesByName(e,species)
+                self.productList.insert(i,obj)
+                i=i+1
+        if(self.isThreeBody==True or self.isLindemann==True or self.isTroe==True):
+            self.mSpeciesList=[]
+            i=0
+            for e in list(mValuesDict.keys()):
+                obj=findSpeciesByName(e,species)
+                self.mSpeciesList.insert(i,obj)
+                i=i+1
