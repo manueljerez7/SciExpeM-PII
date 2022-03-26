@@ -116,28 +116,32 @@ class Reaction:
             self.reactants['M']=mValuesDict
             self.products['M']=mValuesDict
 
-        self.reactantList=[]
+        reactantList=[]
         i=0
         for e in list(self.reactants.keys()):
             if(e=='M'):
                 pass
             else:
                 obj=findSpeciesByName(e,species)
-                self.reactantList.insert(i,obj)
+                reactantList.insert(i,obj)
                 i=i+1
-        self.productList=[]
+        self.reactantsObject=dict(zip(list(self.reactants.keys()),reactantList))
+        productList=[]
         i=0
         for e in list(self.products.keys()):
             if(e=='M'):
                 pass
             else:
                 obj=findSpeciesByName(e,species)
-                self.productList.insert(i,obj)
+                productList.insert(i,obj)
                 i=i+1
+        self.productsObject=dict(zip(list(self.products.keys()),productList))
+
         if(self.isThreeBody==True or self.isLindemann==True or self.isTroe==True):
-            self.mSpeciesList=[]
+            mSpeciesList=[]
             i=0
             for e in list(mValuesDict.keys()):
                 obj=findSpeciesByName(e,species)
-                self.mSpeciesList.insert(i,obj)
+                mSpeciesList.insert(i,obj)
                 i=i+1
+            self.mSpeciesObject=dict(zip(list(mValuesDict.keys()),mSpeciesList))
