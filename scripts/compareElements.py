@@ -1,6 +1,10 @@
 from species import Species
+import numpy as np
 
-def compareElements(el1,el2):
+#Gets two species and returns 3 distances related to them
+#If the species have tha same composition, they are the same, thus all distances are true
+#If they are not the same, 
+def distanceBetweenSpecies(el1,el2):
     equal = 1
     if(el1.elementComp == el2.elementComp):
         #They have same element composition, now compare other values
