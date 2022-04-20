@@ -1,8 +1,9 @@
 import xml.etree.ElementTree as ET
 
-def parseSpecies():
+#Gets the name of the kinetics file
+def parseSpecies(data):
     #Parse the file
-    tree = ET.parse("xml/kinetics.xml")
+    tree = ET.parse(data)
     root = tree.getroot()
     
 

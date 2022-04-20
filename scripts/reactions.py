@@ -122,7 +122,7 @@ class Reaction:
             if(e=='M'):
                 pass
             else:
-                obj=findSpeciesByName(e,species)
+                obj=findSpeciesByName(species,e)
                 reactantList.insert(i,obj)
                 i=i+1
         self.reactantsObject=dict(zip(list(self.reactants.keys()),reactantList))
@@ -132,7 +132,7 @@ class Reaction:
             if(e=='M'):
                 pass
             else:
-                obj=findSpeciesByName(e,species)
+                obj=findSpeciesByName(species,e)
                 productList.insert(i,obj)
                 i=i+1
         self.productsObject=dict(zip(list(self.products.keys()),productList))
@@ -141,7 +141,7 @@ class Reaction:
             mSpeciesList=[]
             i=0
             for e in list(mValuesDict.keys()):
-                obj=findSpeciesByName(e,species)
+                obj=findSpeciesByName(species,e)
                 mSpeciesList.insert(i,obj)
                 i=i+1
             self.mSpeciesObject=dict(zip(list(mValuesDict.keys()),mSpeciesList))

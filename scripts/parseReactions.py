@@ -1,8 +1,10 @@
 import xml.etree.ElementTree as ET
 
-def parseReactions():
+#Gets the strings with the kinetics file and the reaction names file
+
+def parseReactions(dataKinetics,dataNames):
     #Parse the file
-    tree = ET.parse("xml/reaction_names.xml")
+    tree = ET.parse(dataNames)
     root = tree.getroot()
     #Now we get the reaction-names
     reactions=str.splitlines(root[1].text)
@@ -10,7 +12,7 @@ def parseReactions():
     reactions.pop(0)
 
     #Once we have the names, now get the info from the kinetics file. First lnA
-    tree = ET.parse("xml/kinetics.xml")
+    tree = ET.parse(dataKinetics)
     root = tree.getroot()
     lnAString=str.splitlines(root[9][15][0][0].text)[:-1]
     lnAString.pop(0)
