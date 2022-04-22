@@ -4,7 +4,7 @@ from getReactions import getReactions
 from networkFunctions import getPropertiesOfNode
 from species import Species
 from getSpecies import getSpecies
-from getDistanceBetweenSpecies import compareElements
+from compare import *
 from species import findSpeciesByName
 from networkFunctions import generateNetwork
 import matplotlib.pyplot as plt
@@ -16,4 +16,4 @@ reactions1 = getReactions(species1,"xml/kinetics.xml","xml/reaction_names.xml")
 kinetics,species2 = getSpecies("xml/kinetics2.xml")
 reactions2 = getReactions(species2,"xml/kinetics2.xml","xml/reaction_names2.xml")
 
-compareElements('CH4',['MANU','MANUEL','O2','CH3','H2O'],species1,species2,reactions1,reactions2)
+compareElements('AR',['MANU','MANUEL','EL'],species1,species2,reactions1,reactions2)
