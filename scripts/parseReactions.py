@@ -1,7 +1,9 @@
 import xml.etree.ElementTree as ET
 
-#Gets the strings with the kinetics file and the reaction names file
-
+####################################################################
+#Gets two strings, one with the kinetics file and other with the reaction names file
+#Returns various lists needed to create the reactions objects
+####################################################################
 def parseReactions(dataKinetics,dataNames):
     #Parse the file
     tree = ET.parse(dataNames)

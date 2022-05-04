@@ -1,6 +1,6 @@
 from re import I
 from species import Species
-from species import findSpeciesByName
+from findSpeciesByName import findSpeciesByName
 
 class Reaction:
     #__init__ for the standard reactions

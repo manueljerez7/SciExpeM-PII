@@ -2,6 +2,10 @@ from parseSpecies import parseSpecies
 from species import Species
 from kinetics import Kinetics
 
+########################################################################
+#Gets the name of the Kinetics file. Returns the kinetics object and the
+#list of species object
+########################################################################
 def getSpecies(data):
     elementsList, atomicComp, numberOfSpecies, speciesNames, nasaCoef, lennard = parseSpecies(data)
     i=0
@@ -12,5 +16,5 @@ def getSpecies(data):
         speciesList.insert(i,newSpecies)
         i=i+1
 
-    kinetics = Kinetics(speciesList)
+    kinetics = Kinetics(speciesList,data)
     return kinetics,speciesList

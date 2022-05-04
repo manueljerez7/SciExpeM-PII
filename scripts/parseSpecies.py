@@ -1,6 +1,9 @@
 import xml.etree.ElementTree as ET
 
-#Gets the name of the kinetics file
+####################################################################
+#Gets the name of the kinetics file and returns various lists needed
+#to create the species objects
+####################################################################
 def parseSpecies(data):
     #Parse the file
     tree = ET.parse(data)

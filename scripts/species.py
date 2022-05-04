@@ -23,9 +23,3 @@ class Species:
     def __hash__(self):
         return self.index
 
-def findSpeciesByName(species,name):
-    for e in species:
-        if(name==e.name):
-            return e
-        else:
-            pass

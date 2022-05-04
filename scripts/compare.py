@@ -1,14 +1,15 @@
 from matplotlib.pyplot import table
 from networkFunctions import generateNetwork, getPropertiesOfNode
-from species import findSpeciesByName
+from findSpeciesByName import findSpeciesByName
 from species import Species
 import numpy as np
 import matplotlib.pyplot as plt
 
-#Gets two species and returns a normalized vector of the distance between them
+############################################################################
+#Gets two species objects and the two networks where they appear and returns a 4 values related to the distance between them
 #where the first number is the nasa coeff distance, the second is the lennard jones distance
-#and the third one is the graphical distance based on different parameters of the Network Graph
-
+#and the third one is the graphical distance based on different parameters of the Network Graph; and the norm of them
+############################################################################
 def getDistanceBetweenSpecies(el1,el2,G1,G2):
     l1=np.sort(np.array(el1.nasaCoef))
     l2=np.sort(np.array(el2.nasaCoef))
@@ -38,8 +39,14 @@ def getDistanceBetweenSpecies(el1,el2,G1,G2):
 
     return nasaDist,lennJonesDist,vDist, absDist
 
-#Compares and plots distance between one element from one model and a list of elements from other model
-def compareElements(el1, listElements, species1, species2, reactions1, reactions2):
+
+
+#####################################################################################
+#Gets the name of an species from model 1, the list of names of species to be compared with from model 2, 
+#the list of species from models 1 and 2 and the list of reactions from models 1 and 2,
+#plots a bar graph with the different values of the distance between species 1 and the list of it
+#####################################################################################
+def compareSpecies(el1, listElements, species1, species2, reactions1, reactions2):
     NASAdistances=[]
     LJdistances=[]
     Ndistances=[]

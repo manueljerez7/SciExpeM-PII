@@ -4,6 +4,11 @@ from reactions import Reaction
 from getSpecies import getSpecies
 from species import Species
 
+########################################################################
+#Gets the list of species, the string with the name of the kinetics file
+#and the string with the name containing the reaction names. Returns
+#the list with the reaction objects
+########################################################################
 def getReactions(species,dataKinetics,dataNames):
 
     reactionNames,lnA,beta,eOverR,threeBodyList,lindList,troeList,pressLogList,pressLogDict,lnaFallOffDict,betaFallOffDict,eOverRFallOffDict,threeBodyDict,fallOffThreeBodyDict,troeCoefList = parseReactions(dataKinetics,dataNames)

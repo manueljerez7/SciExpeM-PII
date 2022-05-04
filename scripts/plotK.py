@@ -2,6 +2,10 @@ from reactions import Reaction
 import matplotlib.pyplot as plt
 import numpy as np
 
+####################################################################
+#Gets a reaction object which has to be elementary or threebody
+#and the min and max temperature, and plots a graph of K
+####################################################################
 def plotKElementary(r,Tmin,Tmax):
     if(r.isPressureLog==False and r.isLindemann==False and r.isTroe==False):
         A=r.lnA

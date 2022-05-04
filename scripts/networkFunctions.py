@@ -5,7 +5,10 @@ from reactions import Reaction
 import networkx as nx
 import plotly.graph_objects as go
 
-#Gets species name and plots the graph network related
+########################################################################
+#Gets a list of species names and the netowrk object and plots the network
+#graph with the specified species as the center of it
+########################################################################
 def plotNetwork(s,X):
     edges= X.edges(s)
     G=X.edge_subgraph(edges)
@@ -70,6 +73,11 @@ def plotNetwork(s,X):
     fig.show()
 
 
+
+########################################################################
+#Gets the list of species and the list of reactions and returns the 
+#NetworkX object modelling the network
+########################################################################
 def generateNetwork(species,reactions):
     
     speciesNames = []
@@ -91,10 +99,23 @@ def generateNetwork(species,reactions):
 
     return G
 
+
+
+########################################################################
+#Gets the list of species and reactions and a list with the names of 
+#species that want to be seen on the graph, and plots the network graph
+#with the relations of all the species
+########################################################################
 def getNetwork(species,reactions,speciesList):
     G=generateNetwork(species,reactions)
     plotNetwork(speciesList,G)
 
+
+
+########################################################################
+#Gets the network object and the name of a species and returns properties
+#from the node representing that species
+########################################################################
 def getPropertiesOfNode(G,el):
     centrality=nx.degree_centrality(G)[el]
     betweenness=nx.betweenness_centrality(G,normalized=True)[el]
