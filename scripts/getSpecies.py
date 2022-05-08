@@ -16,5 +16,5 @@ def getSpecies(data):
         speciesList.insert(i,newSpecies)
         i=i+1
 
-    kinetics = Kinetics(speciesList,data)
+    kinetics = Kinetics(data)
     return kinetics,speciesList
