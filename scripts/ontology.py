@@ -11,12 +11,26 @@ def ontology(species,reactions):
     applyReactionNumber=[]
     hasStoichiometricNumber=[]
     indicatesMultiplicityOf=[]
+    participatesIn=[]
+    arheniusReaction=[]
+    arheniusCoef=[]
+    arhIsACoef=[]
+    fallOffReaction=[]
+
     for r in reactions:
         #is-a (ReverseReaction    ForwardReaction)
         if (r.reversability==True):
             reversability.append(["ReverseReaction","is-a",r.name])
         else:
             reversability.append(["ForwardReaction","is-a",r.name])
+        
+        #arheniusReaction arheniusCoefficient arheniusIsACoeff  fallOffReaction
+        arheniusReaction.append(["ArrheniusReaction","is-a",r.name])
+        arheniusCoef.append([r.name,"hasArrheniusCoefficient",str(r.lnA)])
+        arhIsACoef.append([str(r.lnA),"is-a","RateCoefficient"])
+        if(r.isTroe==True or r.isLindemann==True):
+            fallOffReaction.append(["FallOffReaction","is-a",r.name])
+        
 
         #hasReactionOrder
         aux1=r.reactants
@@ -35,18 +49,23 @@ def ontology(species,reactions):
         for n in n3:
             hasStoichiometricNumber.append([r.name,"hasStoichiometricNumber",str(n)])
 
-        #hasReactant    hasProduct  appliesTo   indicatesMultiplicityOf
+        #hasReactant    hasProduct  appliesTo   indicatesMultiplicityOf participatesIn
         reactants=list(r.reactants.keys())
         products=list(r.products.keys())
         for re in reactants:
             reactantsOntology.append([r.name,"hasReactant",re])
             applyReactionNumber.append([str(number),"appliesTo",re])
             indicatesMultiplicityOf.append([r.reactants[re],"indicatesMultiplicityOf",re])
+            if (r.reversability==False):
+                participatesIn.append([re,"participatesIn","ForwardReaction"])
+
         for p in products:
             productsOntology.append([r.name,"hasProduct",p])
             applyReactionNumber.append([str(number),"appliesTo",p])
             indicatesMultiplicityOf.append([r.products[p],"indicatesMultiplicityOf",p])
-    
+            if (r.reversability==True):
+                participatesIn.append([re,"participatesIn","ReverseReaction"])
+
     #isASpecies hasElement  hasElementNumber    indicatesNumberOf
     isASpecies=[]
     hasElement=[]
@@ -78,6 +97,10 @@ def ontology(species,reactions):
             write.writerows(hasElement)
             write.writerows(hasElementNumber)
             write.writerows(indicatesNumberOf)
+            write.writerows(participatesIn)
+            write.writerows(arheniusReaction)
+            write.writerows(arheniusCoef)
+            write.writerow(arhIsACoef)
+            write.writerows(fallOffReaction)
             
-
             print('File written')
