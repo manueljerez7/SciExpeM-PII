@@ -3,6 +3,7 @@ from reactions import Reaction
 import csv
 import numpy as np
 
+#################################################################################################################################
     #The following implementation of the knowledge graph was done using the OntoKin definition in the paper
     #https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00960
     #The explanation for each of the implementations done is present before the code that generates the 
@@ -15,7 +16,7 @@ import numpy as np
     #                           SurfaceCoverageReaction, StickingCoefficientReaction
     #In Species Group: ThermoModel, TransportModel
     #In Rate Coefficients Group: FallOffModelCoefficient, LandauTellerRateCoefficient, CoverageDependendy, StickingCoefficient
-
+#################################################################################################################################
 
 def ontology(species,reactions):
     reactantsOntology=[]
