@@ -1,7 +1,6 @@
 from ast import parse
 from parseReactions import parseReactions
 from reactions import Reaction
-from getSpecies import getSpecies
 from species import Species
 
 ########################################################################

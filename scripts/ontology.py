@@ -155,7 +155,7 @@ def ontology(species,reactions):
                 hasElementNumber.append([s.name,"hasElementNumber",dictElements[k]])
     
 
-    with open('ontology/test.csv', 'w', newline='') as f:
+    with open('ontology/knowledge.csv', 'w', newline='') as f:
             write = csv.writer(f)
             write.writerows(reactantsOntology)
             write.writerows(productsOntology)
