@@ -1,4 +1,3 @@
-from re import I
 from species import Species
 from findSpeciesByName import findSpeciesByName
 

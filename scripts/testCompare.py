@@ -2,6 +2,16 @@ from getReactions import getReactions
 from getSpecies import getSpecies
 from compare import *
 
+########################################################
+# Test script for plotting a graph bar comparing species
+# Requirements:
+# numpy
+# matplotlib
+# xml
+# networkX
+# plotly
+# ######################################################
+
 #First we need to get the species and reactions objects
 kinetics,species = getSpecies("xml/kinetics.xml")
 reactions = getReactions(species,"xml/kinetics.xml","xml/reaction_names.xml")
