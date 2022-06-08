@@ -15,5 +15,7 @@ from compare import *
 #First we need to get the species and reactions objects
 kinetics,species = getSpecies("xml/kinetics.xml")
 reactions = getReactions(species,"xml/kinetics.xml","xml/reaction_names.xml")
-#We will compare element H2O against other elements of the same model
-compareSpecies('H2O',['AR','H2','CO2'],species,species,reactions,reactions)
+kinetics2,species2 = getSpecies("xml/kinetics2.xml")
+reactions2 = getReactions(species,"xml/kinetics.xml","xml/reaction_names2.xml")
+#We will compare element HOCO against other elements of a modified model, with different species names and some values changed
+compareSpecies('HOCO',['MANU','EL','MANUEL'],species,species2,reactions,reactions2)

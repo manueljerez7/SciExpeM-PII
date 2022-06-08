@@ -2,7 +2,7 @@ Data Mining di dati scientifici
 
 Jerez_Manuel_989589
 
-Ramalli, Edoardo
+Pernici, Barbara
 
 The project done is related to the Polimi Project SciExpEm.
 On the documentation, a brief introduction to this project is explained, as well as the task I was requested to do and my solutions proposed.
